@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Global, AppWrap } from './App.style'
+import Header from './components/Header/Header'
+import Window from './components/Window/Window'
+import Footer from './components/Footer/Footer'
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      hideContent: true,
+      backgroundUrl: '',
+    }
+  }
+
+  toggleOnClick = () => {
+    this.setState({ hideContent: !this.state.hideContent })
+  }
+
+  changeBackOnClick = url => {
+    this.setState({ backgroundUrl: url })
+  }
+
+  render() {
+    return (
+      <>
+        <Global />
+        <AppWrap backgroundUrl={this.state.backgroundUrl}>
+          <Header />
+          <Window
+            changeBackOnClick={this.changeBackOnClick}
+            hideContent={this.state.hideContent}
+          />
+          <Footer toggleOnClick={this.toggleOnClick} />
+        </AppWrap>
+      </>
+    )
+  }
 }
-
-export default App;
