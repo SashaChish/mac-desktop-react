@@ -4,6 +4,8 @@ import { grayOpacity, border1px, white } from '../../theme'
 
 export const AppFooter = styled.footer`
   margin: 0 0 0 130px;
+  position: absolute;
+  bottom: 5%;
 `
 
 export const Wrap = styled.div`
