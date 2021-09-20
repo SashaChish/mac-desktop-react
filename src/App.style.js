@@ -22,4 +22,7 @@ export const AppWrap = styled.div`
   height: 100vh;
   background: url(${props => props.backgroundUrl || defaultBackground}) 0 0 /
     cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

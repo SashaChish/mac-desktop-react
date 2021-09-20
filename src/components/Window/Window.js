@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { key, colors } from '../../data/index'
+import { key, colors } from '../../data'
 import {
   Wrap,
   Header,
@@ -16,14 +16,6 @@ import {
   Border,
   Title,
 } from './Window.style'
-
-const addImage = (images, changeBack) => {
-  return images.map(img => (
-    <Image onClick={() => changeBack(img.url)} key={img.id} url={img.url}>
-      <Border />
-    </Image>
-  ))
-}
 
 export default class Window extends React.Component {
   constructor(props) {
@@ -54,8 +46,11 @@ export default class Window extends React.Component {
   }
 
   render() {
+    const { images } = this.state
+    const { сontentHidden, changeBackOnClick } = this.props
+
     return (
-      <Wrap>
+      <Wrap сontentHidden={сontentHidden}>
         <Header>
           <Points>
             {colors.map(color => (
@@ -72,8 +67,16 @@ export default class Window extends React.Component {
         </Header>
         <Body>
           <ContentWrap>
-            <Content hideContent={this.props.hideContent}>
-              {addImage(this.state.images, this.props.changeBackOnClick)}
+            <Content>
+              {images.map(img => (
+                <Image
+                  onClick={changeBackOnClick(img.url)}
+                  key={img.id}
+                  url={img.url}
+                >
+                  <Border />
+                </Image>
+              ))}
             </Content>
           </ContentWrap>
         </Body>

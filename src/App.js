@@ -6,32 +6,33 @@ import Window from './components/Window/Window'
 import Footer from './components/Footer/Footer'
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
-      hideContent: true,
+      сontentHidden: false,
       backgroundUrl: '',
     }
   }
 
   toggleOnClick = () => {
-    this.setState({ hideContent: !this.state.hideContent })
+    this.setState({ сontentHidden: !this.state.сontentHidden })
   }
 
-  changeBackOnClick = url => {
+  changeBackOnClick = url => () => {
     this.setState({ backgroundUrl: url })
   }
 
   render() {
+    const { backgroundUrl, сontentHidden } = this.state
     return (
       <>
         <Global />
-        <AppWrap backgroundUrl={this.state.backgroundUrl}>
+        <AppWrap backgroundUrl={backgroundUrl}>
           <Header />
           <Window
             changeBackOnClick={this.changeBackOnClick}
-            hideContent={this.state.hideContent}
+            сontentHidden={сontentHidden}
           />
           <Footer toggleOnClick={this.toggleOnClick} />
         </AppWrap>

@@ -3,11 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import { grayOpacity, border1px, white } from '../../theme'
 
 export const AppFooter = styled.footer`
-  width: 35%;
-  position: absolute;
-  bottom: 5%;
-  left: 40%;
-  z-index: 1;
+  margin: 0 0 0 130px;
 `
 
 export const Wrap = styled.div`
@@ -41,8 +37,9 @@ const focus = keyframes`
 export const Image = styled.div`
   flex-basis: 15%;
   height: 60px;
-  background: url(images/footer/${props => props.name}.png) center center /
-    cover no-repeat;
+  background: url(${({ name }) =>
+      process.env.PUBLIC_URL.concat('/images/footer/', name, '.png')})
+    center center / cover no-repeat;
 
   &:first-child::before {
     content: '22';

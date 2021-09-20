@@ -1,23 +1,49 @@
 import styled, { keyframes } from 'styled-components'
 import { white, border1px, opacity, grayOpacity } from '../../theme'
 
+const hide = keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+`
+
+const show = keyframes`
+  0% {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`
+
 export const Wrap = styled.div`
-  position: absolute;
-  top: 20%;
-  left: 5%;
-  z-index: 50;
   width: 35vw;
   height: 60vh;
   min-width: 500px;
   min-height: 400px;
+  margin: 100px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   background: ${white};
+  animation: ${({ сontentHidden }) => (сontentHidden ? hide : show)} 0.35s
+    forwards;
 
   @media (max-width: 1400px) {
     min-width: 450px;
     min-height: 350px;
+    margin: 100px 0 70px 70px;
   }
 `
 
@@ -101,31 +127,6 @@ export const ContentWrap = styled.div`
   background: rgba(235, 232, 232, 0.89);
 `
 
-const hide = keyframes`
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    height: 0;
-    width: 0;
-    visibility: hidden;
-  }
-`
-
-const show = keyframes`
-  0% {
-    opacity: 0;
-    height: 0;
-    width: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-`
-
 export const Content = styled.div`
   min-width: 350px;
   min-height: 270px;
@@ -137,7 +138,6 @@ export const Content = styled.div`
   align-content: flex-start;
   flex-wrap: wrap;
   background: ${white};
-  animation: ${props => (props.hideContent ? show : hide)} 0.35s forwards;
 
   &::-webkit-scrollbar {
     width: 9px;
@@ -182,7 +182,6 @@ export const Image = styled.div`
   flex-grow: 1;
   background: url(${props => props.url}) center center/cover;
   cursor: pointer;
-  animation: ${show} 0.35s forwards;
 
   &:hover ${Border} {
     display: block;
