@@ -26,8 +26,8 @@ export default class Header extends React.Component {
     let MM = new Date().getMinutes()
     let HH = new Date().getHours()
 
-    MM = MM < 10 ? '0' + MM : MM
-    HH = HH < 10 ? '0' + HH : HH
+    MM = MM < 10 ? `0${MM}` : MM
+    HH = HH < 10 ? `0${HH}` : HH
 
     const date = `${day} ${dayOfMonth} ${month} ${HH}:${MM}`
 
@@ -35,6 +35,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const { date } = this.state
     return (
       <Wrap>
         <Container>
@@ -42,7 +43,7 @@ export default class Header extends React.Component {
             <I className="fa fa-apple fa-lg" />
           </Logo>
           <Time>
-            <p>{this.state.date}</p>
+            <p>{date}</p>
           </Time>
         </Container>
       </Wrap>

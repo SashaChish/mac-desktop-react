@@ -16,7 +16,7 @@ export default class App extends React.Component {
   }
 
   toggleOnClick = () => {
-    this.setState({ сontentHidden: !this.state.сontentHidden })
+    this.setState(state => ({ сontentHidden: !state.сontentHidden }))
   }
 
   changeBackOnClick = url => () => {

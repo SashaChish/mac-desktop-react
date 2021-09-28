@@ -27,10 +27,10 @@ export default class Window extends React.Component {
   }
 
   componentDidMount() {
-    this.getImage()
+    this.getImages()
   }
 
-  async getImage() {
+  async getImages() {
     const responce = await fetch(
       `https://pixabay.com/api/?key=${key}&image_type=photo`,
     )

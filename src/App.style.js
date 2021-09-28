@@ -20,8 +20,8 @@ export const Global = createGlobalStyle`
 export const AppWrap = styled.div`
   width: 100%;
   height: 100vh;
-  background: url(${props => props.backgroundUrl || defaultBackground}) 0 0 /
-    cover no-repeat;
+  background: url(${({ backgroundUrl }) => backgroundUrl || defaultBackground})
+    center center / cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;

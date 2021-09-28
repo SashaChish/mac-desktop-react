@@ -49,7 +49,7 @@ export const Wrap = styled.div`
 
 export const Header = styled.header`
   height: 13%;
-  border-bottom: ${border1px + ' ' + grayOpacity};
+  border-bottom: ${`${border1px} ${grayOpacity}`};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -95,7 +95,7 @@ export const SearchIcon = styled.i`
 export const Input = styled.input`
   height: 25px;
   width: 120px;
-  border: ${border1px + ' '} rgba(189, 190, 189, ${opacity});
+  border: ${`${border1px} `} rgba(189, 190, 189, ${opacity});
   border-radius: 15px;
   padding: 0 0 0 26px;
 
@@ -119,7 +119,7 @@ export const Body = styled.div`
 export const ContentWrap = styled.div`
   width: 94%;
   height: 90%;
-  border: ${border1px + ' '} gray;
+  border: ${`${border1px} `} gray;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -132,7 +132,7 @@ export const Content = styled.div`
   min-height: 270px;
   width: 70%;
   height: 70%;
-  border: ${border1px + ' '} gray;
+  border: ${`${border1px} `} gray;
   overflow-y: scroll;
   display: flex;
   align-content: flex-start;

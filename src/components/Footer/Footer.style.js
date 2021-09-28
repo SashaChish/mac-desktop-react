@@ -73,8 +73,8 @@ export const Image = styled.div`
   }
 `
 
-export const Seperator = styled.div`
+export const Separator = styled.div`
   height: 60px;
   margin: 0 15px;
-  border: ${border1px + ' '} black;
+  border: ${`${border1px} `} black;
 `

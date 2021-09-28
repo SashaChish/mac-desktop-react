@@ -22,7 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.eslintrc
+.eslintrc.js
+.eslintinore
 .eslintcache
 .prettierrc
+.vscode
 package-lock.json
