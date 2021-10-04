@@ -50,7 +50,9 @@ export default class Window extends React.Component {
 
   searchImg = e => {
     const { images } = this.state
-    const filterImg = images.filter(img => img.tags.includes(e.target.value))
+    const filterImg = images.filter(img =>
+      img.tags.includes(e.target.value.toLowerCase()),
+    )
 
     this.setState({ filterImg })
   }

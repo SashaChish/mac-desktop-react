@@ -1,15 +1,13 @@
 export function dateNow() {
-  const [day, month, dayOfMonth] = new Date().toDateString().split(' ')
-  let MM = new Date().getMinutes()
-  let HH = new Date().getHours()
+  const date = new Date()
+  const [day, month, dayOfMonth] = date.toDateString().split(' ')
+  let MM = date.getMinutes()
+  let HH = date.getHours()
 
   MM = MM < 10 ? `0${MM}` : MM
-
   HH = HH < 10 ? `0${HH}` : HH
 
-  const date = `${day} ${dayOfMonth} ${month} ${HH}:${MM}`
-
-  return date
+  return `${day} ${dayOfMonth} ${month} ${HH}:${MM}`
 }
 
 export function styledImg(images) {
