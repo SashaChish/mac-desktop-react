@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { key, colors } from '../../data'
+import { styledImg } from '../../utility'
 import {
   Wrap,
   Header,
@@ -15,6 +16,7 @@ import {
   Image,
   Border,
   Title,
+  TitleWrap,
 } from './Window.style'
 
 export default class Window extends React.Component {
@@ -23,6 +25,7 @@ export default class Window extends React.Component {
 
     this.state = {
       images: [],
+      filterImg: null,
     }
   }
 
@@ -45,8 +48,15 @@ export default class Window extends React.Component {
     this.setState({ images })
   }
 
-  render() {
+  searchImg = e => {
     const { images } = this.state
+    const filterImg = images.filter(img => img.tags.includes(e.target.value))
+
+    this.setState({ filterImg })
+  }
+
+  render() {
+    const { images, filterImg } = this.state
     const { сontentHidden, changeBackOnClick } = this.props
 
     return (
@@ -57,22 +67,27 @@ export default class Window extends React.Component {
               <Point key={color} color={color} />
             ))}
           </Points>
-          <div>
+          <TitleWrap>
             <Title>Desktop &amp; Screen Saver</Title>
-          </div>
+          </TitleWrap>
           <Search>
             <SearchIcon className="fa fa-search fa-1x" />
-            <Input type="text" placeholder="Search" />
+            <Input
+              onChange={e => this.searchImg(e)}
+              type="text"
+              placeholder="Search"
+            />
           </Search>
         </Header>
         <Body>
           <ContentWrap>
             <Content>
-              {images.map(img => (
+              {(filterImg || images).map((img, index, array) => (
                 <Image
                   onClick={changeBackOnClick(img.url)}
                   key={img.id}
                   url={img.url}
+                  styledImg={styledImg(array)}
                 >
                   <Border />
                 </Image>

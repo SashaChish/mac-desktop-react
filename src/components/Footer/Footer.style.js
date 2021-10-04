@@ -3,23 +3,38 @@ import styled, { keyframes } from 'styled-components'
 import { grayOpacity, border1px, white } from '../../theme'
 
 export const AppFooter = styled.footer`
-  margin: 0 0 0 130px;
-  position: absolute;
+  position: relative;
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
   bottom: 5%;
+
+  @media (max-width: 768px) {
+    margin: 0;
+    max-width: 70%;
+  }
+
+  @media (max-width: 425px) {
+    max-width: 90%;
+  }
 `
 
 export const Wrap = styled.div`
-  min-width: 450px;
-  width: 80%;
-  height: 80px;
+  width: 100%;
+  height: 90px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: ${grayOpacity};
 
-  @media (max-width: 1400px) {
-    min-width: 430px;
+  @media (max-width: 768px) {
+    min-width: 500px;
+  }
+
+  @media (max-width: 425px) {
+    min-width: 350px;
   }
 `
 
@@ -38,7 +53,7 @@ const focus = keyframes`
 
 export const Image = styled.div`
   flex-basis: 15%;
-  height: 60px;
+  height: 70px;
   background: url(${({ name }) =>
       process.env.PUBLIC_URL.concat('/images/footer/', name, '.png')})
     center center / cover no-repeat;
@@ -47,16 +62,28 @@ export const Image = styled.div`
     content: '22';
     display: table-cell;
     position: relative;
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 24px;
     font-size: 12px;
-    left: 260%;
+    left: 245%;
     bottom: 5px;
     border-radius: 50%;
     background: red;
     color: ${white};
     text-align: center;
     vertical-align: middle;
+
+    @media (max-width: 768px) {
+      width: 23px;
+      height: 22px;
+      left: 250%;
+    }
+
+    @media (max-width: 425px) {
+      left: 190%;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &:hover {
@@ -64,12 +91,9 @@ export const Image = styled.div`
     animation: ${focus} 0.5s forwards;
   }
 
-  @media (max-width: 1400px) {
-    &:first-child::before {
-      width: 20px;
-      height: 20px;
-      left: 250%;
-    }
+  @media (max-width: 425px) {
+    flex-basis: 16%;
+    height: 55px;
   }
 `
 
