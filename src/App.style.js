@@ -9,8 +9,8 @@ export const Global = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     font-weight: 800;
     font-family: 'Roboto Mono', monospace;
   }
@@ -24,5 +24,9 @@ export const AppWrap = styled.div`
     center center / cover no-repeat;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `

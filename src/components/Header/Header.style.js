@@ -2,10 +2,6 @@ import styled from 'styled-components'
 import { grayOpacity, white } from '../../theme'
 
 export const Wrap = styled.header`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 50;
   width: 100%;
   background: ${grayOpacity};
 `
